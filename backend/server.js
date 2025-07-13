@@ -4,7 +4,26 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+
+// ✅ CORS setup
+const allowedOrigins = [
+  "http://localhost:3000",                        // local frontend
+  "https://skill-swap-six-lemon.vercel.app"       // deployed frontend on Vercel
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("CORS policy does not allow this origin."), false);
+    }
+  },
+  credentials: true
+}));
+
 app.use(express.json());
 
 // Routes
