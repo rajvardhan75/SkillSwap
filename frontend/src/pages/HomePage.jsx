@@ -20,6 +20,8 @@ function HomePage() {
             textAlign: 'center',
           }}
         >
+
+        
           <Typography variant="h3" fontWeight="bold" gutterBottom color="primary">
             {isLoggedIn ? 'Welcome Back to SkillSwap 🙌' : 'Welcome to SkillSwap 🚀'}
           </Typography>
