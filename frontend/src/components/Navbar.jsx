@@ -20,18 +20,17 @@ function Navbar() {
 
   useEffect(() => {
     if (isLoggedIn) {
+      const fetchNotifications = async () => {
+        try {
+          const res = await axios.get(`https://skillswap-wuwu.onrender.com/api/swaps/inbox/${userId}`);
+          setNotifications(res.data.filter(req => req.status === "pending"));
+        } catch (err) {
+          console.error("Error fetching notifications", err);
+        }
+      };
       fetchNotifications();
     }
-  }, [isLoggedIn]);
-
-  const fetchNotifications = async () => {
-    try {
-      const res = await axios.get(`https://skillswap-wuwu.onrender.com/api/swaps/inbox/${userId}`);
-      setNotifications(res.data.filter(req => req.status === "pending"));
-    } catch (err) {
-      console.error("Error fetching notifications", err);
-    }
-  };
+  }, [isLoggedIn, userId]);
 
   const handleNotifOpen = (e) => setNotifAnchor(e.currentTarget);
   const handleNotifClose = () => setNotifAnchor(null);
@@ -131,7 +130,6 @@ function Navbar() {
               <MenuItem onClick={() => { handleMenuClose(); navigate("/previous-works"); }}>
                 <i className="fas fa-briefcase" style={{ marginRight: "8px" }}></i> Previous Works
               </MenuItem>
-
               <MenuItem onClick={handleLogout}>
                 <i className="fas fa-sign-out-alt" style={{ marginRight: "8px" }}></i> Logout
               </MenuItem>
