@@ -14,7 +14,7 @@ function MyRequestsPage() {
   useEffect(() => {
     const fetchSentRequests = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/swaps/sent/${userId}`);
+        const res = await axios.get(`https://skillswap-wuwu.onrender.com/api/swaps/sent/${userId}`);
         setRequests(res.data);
       } catch (err) {
         console.error("Failed to fetch sent requests:", err);

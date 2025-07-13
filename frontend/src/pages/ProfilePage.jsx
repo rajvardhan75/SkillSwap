@@ -24,7 +24,7 @@ function ProfilePage() {
 
   useEffect(() => {
     const fetchProfile = async () => {
-      const res = await axios.get(`http://localhost:5000/api/users/${userId}`);
+      const res = await axios.get(`https://skillswap-wuwu.onrender.com/api/users/${userId}`);
       const { name, skillsOffered, skillsWanted, availability, isPublic } = res.data;
       setForm({
         name,

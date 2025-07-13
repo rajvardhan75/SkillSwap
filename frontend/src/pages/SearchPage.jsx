@@ -15,7 +15,7 @@ function SearchPage() {
 
   const handleSearch = async () => {
     const res = await axios.get(
-      `http://localhost:5000/api/users/search?skill=${skill}`
+      `https://skillswap-wuwu.onrender.com/api/users/search?skill=${skill}`
     );
     setResults(res.data);
   };

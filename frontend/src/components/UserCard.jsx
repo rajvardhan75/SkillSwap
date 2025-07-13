@@ -7,7 +7,7 @@ const UserCard = ({ user, currentUserId }) => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:5000/api/swaps/send",
+        "https://skillswap-wuwu.onrender.com/api/swaps/send",
         {
           fromUser: currentUserId,
           toUser: user._id,

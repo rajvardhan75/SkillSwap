@@ -54,9 +54,9 @@ function Navbar() {
   const handleAction = async (action) => {
     try {
       if (action === "delete") {
-        await axios.delete(`http://localhost:5000/api/swaps/${selectedRequest._id}`);
+        await axios.delete(`https://skillswap-wuwu.onrender.com/api/swaps/${selectedRequest._id}`);
       } else {
-        await axios.put(`http://localhost:5000/api/swaps/respond/${selectedRequest._id}`, {
+        await axios.put(`https://skillswap-wuwu.onrender.com/api/swaps/respond/${selectedRequest._id}`, {
           status: action
         });
       }

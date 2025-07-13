@@ -9,7 +9,7 @@ function PreviousWorksPage() {
 
   useEffect(() => {
     const fetchSwaps = async () => {
-      const res = await axios.get(`http://localhost:5000/api/swaps/accepted/${userId}`);
+      const res = await axios.get(`https://skillswap-wuwu.onrender.com/api/swaps/accepted/${userId}`);
       setSwaps(res.data);
     };
     fetchSwaps();

@@ -17,7 +17,7 @@ function InboxPage() {
   useEffect(() => {
     const fetchInbox = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/swaps/received/${userId}`);
+        const res = await axios.get(`https://skillswap-wuwu.onrender.com/api/swaps/received/${userId}`);
         setRequests(res.data);
       } catch (err) {
         console.error("Failed to fetch inbox", err);
@@ -30,7 +30,7 @@ function InboxPage() {
 
   const handleAction = async (id, action) => {
     try {
-      await axios.put(`http://localhost:5000/api/swaps/respond/${id}`, {
+      await axios.put(`https://skillswap-wuwu.onrender.com/api/swaps/respond/${id}`, {
         status: action,
       });
       setRequests((prev) =>
