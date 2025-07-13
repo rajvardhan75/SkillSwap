@@ -48,7 +48,7 @@ function ProfilePage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/users/${userId}`, {
+      await axios.put(`https://skillswap-wuwu.onrender.com/api/users/${userId}`, {
         ...form,
         skillsOffered: form.skillsOffered.split(",").map((s) => s.trim()),
         skillsWanted: form.skillsWanted.split(",").map((s) => s.trim()),
