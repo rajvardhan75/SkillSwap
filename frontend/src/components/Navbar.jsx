@@ -26,7 +26,7 @@ function Navbar() {
 
   const fetchNotifications = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/swaps/inbox/${userId}`);
+      const res = await axios.get(`https://skillswap-wuwu.onrender.com/api/swaps/inbox/${userId}`);
       setNotifications(res.data.filter(req => req.status === "pending"));
     } catch (err) {
       console.error("Error fetching notifications", err);
