@@ -32,7 +32,7 @@ function PreviousWorksPage() {
         comment: feedbacks[swap._id]?.comment || ''
       }
     };
-    await axios.put(`http://localhost:5000/api/swaps/feedback/${swap._id}`, payload);
+    await axios.put(`https://skillswap-wuwu.onrender.com/api/swaps/feedback/${swap._id}`, payload);
     alert("✅ Feedback submitted");
     window.location.reload();
   };
